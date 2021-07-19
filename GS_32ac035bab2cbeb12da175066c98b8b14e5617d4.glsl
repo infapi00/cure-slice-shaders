@@ -36,7 +36,7 @@ if (v_color[1].a != 0.0) {
 
 viewProjectionMatrix = u_projectionMatrix * u_viewMatrix;
 
-vec3 vertex_delta = vec3(0.0, 0.0, 1.0);
+vec3 vertex_delta = gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz;
 vec3 normal_h = normalize(vec3(vertex_delta.z, vertex_delta.y, -vertex_delta.x));
 vec3 normal_v = vec3(0.0, 1.0, 0.0);
 vec4 offset_h = vec4(normal_h, 0.0);
