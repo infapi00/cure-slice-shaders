@@ -5,9 +5,6 @@
 uniform mediump mat4 u_viewMatrix;
 uniform mediump mat4 u_projectionMatrix;
 
-uniform lowp vec4 u_starts_color;
-uniform int u_show_starts;
-
 layout(lines) in;
 
 layout(triangle_strip, max_vertices = 15) out;
@@ -15,8 +12,6 @@ layout(triangle_strip, max_vertices = 15) out;
 in lowp vec4 v_color[];
 in mediump float v_line_width[];
 in mediump float v_line_height[];
-in mediump float v_prev_line_type[];
-in mediump float v_line_type[];
 
 out lowp vec4 f_color;
 out vec3 f_normal;
