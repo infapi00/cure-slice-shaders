@@ -23,14 +23,6 @@ out vec3 f_normal;
 
 mediump mat4 viewProjectionMatrix;
 
-void outputStartVertex(const vec3 normal, const vec4 offset)
-{
-f_color = u_starts_color;
-f_normal = normal;
-gl_Position = viewProjectionMatrix * (gl_in[0].gl_Position + offset);
-EmitVertex();
-}
-
 void outputVertex(const int index, const vec3 normal, const vec4 offset)
 {
 f_color = v_color[1];
@@ -63,17 +55,5 @@ outputEdge(normal_h, offset_h);
 outputEdge(-normal_v, -offset_v);
 outputEdge(-normal_h, -offset_h);
 EndPrimitive();
-
-if ((u_show_starts == 1) && (v_prev_line_type[0] != 1.0) && (v_line_type[0] == 1.0)) {
-float w = v_line_width[1] * 1.1;
-float h = v_line_height[1];
-
-outputStartVertex(normalize(vec3( 1.0,  1.0,  1.0)), vec4( w,  h,  w, 0.0)); // Front-top-left
-outputStartVertex(normalize(vec3( 1.0,  1.0, -1.0)), vec4( w,  h, -w, 0.0)); // Back-top-left
-outputStartVertex(normalize(vec3(-1.0,  1.0,  1.0)), vec4(-w,  h,  w, 0.0)); // Front-top-right
-outputStartVertex(normalize(vec3(-1.0,  1.0, -1.0)), vec4(-w,  h, -w, 0.0)); // Back-top-right
-outputStartVertex(normalize(vec3( 1.0,  1.0, -1.0)), vec4( w,  h, -w, 0.0)); // Back-top-left
-EndPrimitive();
-}
 }
 }
