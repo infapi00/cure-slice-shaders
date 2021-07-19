@@ -32,8 +32,6 @@ outputVertex(1, normal, offset);
 
 void main()
 {
-if (v_color[1].a != 0.0) {
-
 viewProjectionMatrix = u_projectionMatrix * u_viewMatrix;
 
 vec3 vertex_delta = gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz;
@@ -47,5 +45,5 @@ outputEdge(normal_h, offset_h);
 outputEdge(-normal_v, -offset_v);
 outputEdge(-normal_h, -offset_h);
 EndPrimitive();
-}
+
 }
