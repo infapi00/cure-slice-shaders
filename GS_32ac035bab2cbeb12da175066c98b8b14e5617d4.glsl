@@ -44,7 +44,6 @@ vec3 normal_v = vec3(0.0, 1.0, 0.0);
 vec4 offset_h = vec4(normal_h * v_line_width[1], 0.0);
 vec4 offset_v = vec4(normal_v * v_line_height[1], 0.0);
 
-outputEdge(-normal_h, -offset_h);
 outputEdge(normal_v, offset_v);
 outputEdge(normal_h, offset_h);
 outputEdge(-normal_v, -offset_v);
