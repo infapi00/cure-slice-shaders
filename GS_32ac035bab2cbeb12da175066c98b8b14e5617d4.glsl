@@ -18,8 +18,6 @@ mediump mat4 viewProjectionMatrix;
 
 void outputVertex(const int index, const vec3 normal, const vec4 offset)
 {
-f_color = v_color[1];
-f_normal = normal;
 gl_Position = viewProjectionMatrix * (gl_in[index].gl_Position + offset);
 EmitVertex();
 }
